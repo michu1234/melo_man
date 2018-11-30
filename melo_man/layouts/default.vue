@@ -29,7 +29,7 @@
             <img src="../static/logo.fw.png" alt="logo melo man">
       <v-toolbar-title v-text="title" />
 
-                <v-text-field class="ml-auto search-box" style="max-width: 300px" v-if="showSearchBar" v-model.lazy="searchTerm" label="Search..."
+                <v-text-field class="ml-auto search-box mt-2" style="max-width: 300px" v-if="showSearchBar" v-model.lazy="searchTerm" label="Search..."
         required></v-text-field>
       <v-btn icon class="ml-auto">
         <v-icon @click.native="showSearchInput">search</v-icon>
