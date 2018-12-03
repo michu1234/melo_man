@@ -6,7 +6,8 @@ const createStore = () => {
       albumsFullData: [],
       searchTerm: '',
       selectedAlbum: '',
-      selectedArtist: ''
+      selectedArtist: '',
+      favouriteAlbums: []
     }),
     getters: {
       albumsData(state) {
@@ -38,6 +39,9 @@ const createStore = () => {
           }
       })
       return relatedAlbums;
+      },
+      favouriteAlbums(state) {
+        return state.favouriteAlbums;
       }
     },
     mutations: {
@@ -50,6 +54,10 @@ const createStore = () => {
       updateSelectedAlbum(state, payload) {
         state.selectedAlbum = payload.a;
         state.selectedArtist = payload.b;
+      },
+      addToFavourites(state, payload) {
+        console.log(state.albumsFullData)
+        state.favouriteAlbums.push(payload);
       }
     }
   })

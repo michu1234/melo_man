@@ -51,10 +51,30 @@
           </v-list-tile-action>
           <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
         </v-list-tile>
+                  <p class="ml-3 caption">Favourites:</p>
+            <hr class="mb-3">
+    <v-flex xs12 sm12 class="favourite-cards">
+      <v-card class="mb-4 transparent" v-for="(album, index) in favouriteAlbums" :key="index">
+         <v-img class="elevation-5 grey darken-4" :src='album["im:image"][2].label' height="125px" contain></v-img>
+
+        <v-card-title primary-title>
+          <div>
+            <div class="caption">{{album['im:artist'].label}}</div>
+            <span class="grey--text caption">{{album['im:name'].label}}</span>
+          </div>
+        </v-card-title>
+        <v-card-actions>
+          <v-btn flat>Remove</v-btn>
+          <v-spacer></v-spacer>
+          <span class="mt-2 text-xs-right">{{album["im:price"].label}}</span>
+        </v-card-actions>
+      </v-card>
+    </v-flex>
+
       </v-list>
     </v-navigation-drawer>
     <v-footer :fixed="fixed" app>
-      <span>by michu1234 &copy; 2018</span>
+      <span>by michu1234 &copy; 2019</span>
     </v-footer>
   </v-app>
 </template>
@@ -102,7 +122,8 @@
     },
         computed: {
       ...mapGetters([
-        'albumsData'
+        'albumsData',
+        'favouriteAlbums'
       ])
     },
     methods: {
@@ -114,24 +135,24 @@
       },
       ...mapMutations([
       'updateSearchTerm',
-      'updateSelectedAlbum'
+      'updateSelectedAlbum',
     ])
     }
   }
 </script>
 
 <style>
-.search-box {
-  /* position: absolute;
-  top: 30px;
-  right: 400px; */
-}
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+
+.favourite-cards div.v-image__image {
+  background-size: cover;
+  filter: sepia(100%);
 }
 </style>
 

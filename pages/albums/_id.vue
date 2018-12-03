@@ -16,6 +16,7 @@
                     <div>{{album["im:name"].label}}</div>
                     <div>{{album["im:releaseDate"].attributes.label}}</div>
                     <v-btn small color="light-green accent-4 mt-3">Buy Now</v-btn>
+                    <v-btn @click="addToFavourites(album)" small color="teal darken-4 mt-3">Add to favourites</v-btn>
                   </div>
                 </v-card-title>
               </v-flex>
@@ -23,6 +24,7 @@
                 <v-img class="elevation-5 green accent-3 mr-3" :src='album["im:image"][2].label' height="125px" contain></v-img>
               </v-flex>
             </v-layout>
+              <p class="text-xs-right mr-4 white--text">Category: <span class="font-weight-black">{{album.category.attributes.label}}</span></p>
             <v-divider light></v-divider>
             <v-card-actions class="pa-3">
               Price: {{album["im:price"].label}}
@@ -41,7 +43,7 @@
 <hr class="mt-5">
 <p class="mt-2">Related albums:</p>
 
-    <v-container fluid grid-list-lg v-for="(album, index) in allRelatedAlbums" :key="index">
+    <v-container fluid grid-list-lg v-for="(album, index) in allRelatedAlbums" :key="album.id.attributes['im:id']">
               <v-flex xs12>
             <v-card color="blue-grey darken-2" class="white--text">
               <v-layout>
@@ -96,6 +98,11 @@
         'selectedAlbums',
         'allRelatedAlbums'
       ])
+    },
+    methods: {
+      ...mapMutations([
+      'addToFavourites'
+    ])
     }
   }
 </script>
