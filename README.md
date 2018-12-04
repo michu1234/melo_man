@@ -36,7 +36,7 @@
 
 ## Screenshots
 
-<p align="center"><img src="https://i.ibb.co/kXdc6mn/Schowek-2.jpg" alt="WW" width=250><img src="https://i.ibb.co/rfj5jck/Schowek-1.jpg" alt="WW" width=250></p>
+<p align="center"><img src="https://i.ibb.co/KbcBpG3/Schowek-1.jpg" alt="WW" width=250><img src="https://i.ibb.co/fD5YPM4/Schowek-2.jpg" alt="WW" width=250></p>
 
 
 ## Quick start
