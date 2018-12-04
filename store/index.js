@@ -42,7 +42,7 @@ const createStore = () => {
       },
       favouriteAlbums(state) {
         return state.favouriteAlbums;
-      }
+      },
     },
     mutations: {
       updateAlbumsData(state, payload) {
@@ -56,8 +56,21 @@ const createStore = () => {
         state.selectedArtist = payload.b;
       },
       addToFavourites(state, payload) {
-        console.log(state.albumsFullData)
-        state.favouriteAlbums.push(payload);
+      state.favouriteAlbums.push(payload);
+
+      let getLocal = window.localStorage.getItem('test')
+
+      if(getLocal) {
+        let localS = JSON.parse(getLocal)
+        let localArr = [...getLocal];
+          console.log(localArr)
+        window.localStorage.setItem('test', JSON.stringify(localArr.push(payload)))
+      } else {
+        window.localStorage.setItem('test', JSON.stringify([payload]))
+        let getLocal = window.localStorage.getItem('test')
+        let localS = JSON.parse(getLocal)
+        console.log(localS)
+      }
       }
     }
   })
