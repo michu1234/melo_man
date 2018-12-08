@@ -7,7 +7,9 @@ const createStore = () => {
       searchTerm: '',
       selectedAlbum: '',
       selectedArtist: '',
-      favouriteAlbums: []
+      favouriteAlbums: [],
+      infoalert: false,
+      successalert: false
     }),
     getters: {
       albumsData(state) {
@@ -57,7 +59,8 @@ const createStore = () => {
       },
       addToFavourites(state, payload) {
       state.favouriteAlbums.push(payload);
-
+      state.successalert = true;
+      setTimeout(()=>{return state.successalert = false}, 2000);
       let getLocal = window.localStorage.getItem('test')
 
       if(getLocal) {
