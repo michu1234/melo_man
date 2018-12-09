@@ -62,18 +62,16 @@ const createStore = () => {
       state.successalert = true;
       setTimeout(()=>{return state.successalert = false}, 2000);
       let getLocal = window.localStorage.getItem('test')
-
       if(getLocal) {
         let localS = JSON.parse(getLocal)
-        let localArr = [...getLocal];
-          console.log(localArr)
-        window.localStorage.setItem('test', JSON.stringify(localArr.push(payload)))
+        localS.push(payload);
+    window.localStorage.setItem('test', JSON.stringify(localS))
       } else {
         window.localStorage.setItem('test', JSON.stringify([payload]))
-        let getLocal = window.localStorage.getItem('test')
-        let localS = JSON.parse(getLocal)
-        console.log(localS)
       }
+      },
+      updateFavouriteList(state, payload) {
+        state.favouriteAlbums = payload;
       }
     }
   })

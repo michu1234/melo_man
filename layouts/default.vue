@@ -103,7 +103,7 @@
       params
     }) {
       let response = await axios.get(`${config.development.API_URL}topalbums/limit=100/json`)
-      store.commit('updateAlbumsData', response.data.feed.entry)
+      store.commit('updateAlbumsData', response.data.feed.entry);
     },
     components: {
       'info-alert': InfoAlert,
@@ -137,6 +137,13 @@
         'favouriteAlbums'
       ])
     },
+    mounted() {
+        let getLocal = window.localStorage.getItem('test')
+        if(getLocal) {
+          let favourites = JSON.parse(getLocal);
+          this.updateFavouriteList(favourites);
+        }
+    },
     methods: {
       showSearchInput() {
         this.showSearchBar = !this.showSearchBar;
@@ -147,6 +154,7 @@
       ...mapMutations([
         'updateSearchTerm',
         'updateSelectedAlbum',
+        'updateFavouriteList',
       ])
     }
   }
