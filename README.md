@@ -22,6 +22,14 @@
     ·
     <a href="#">apple.com API</a>
     ·
+        <a href="#">Local Storage</a>
+    ·
+            <a href="#">Alert components</a>
+    ·
+                <a href="#">Search box</a>
+    ·
+                    <a href="#">Favourite list</a>
+    ·
     <a href="#">Fully customizable</a>
     ·
     <a href="#">Easy to transform</a>
